@@ -1,4 +1,6 @@
-﻿using CoursWpfOptec.ViewModels.Messages;
+﻿using CoursWpfOptec.Models.Queries.Voitures;
+using CoursWpfOptec.Models.Repositories;
+using CoursWpfOptec.ViewModels.Messages;
 using System.Collections.ObjectModel;
 using System.Windows;
 using Tools.Mvvm.Commands;
@@ -10,6 +12,8 @@ namespace CoursWpfOptec.ViewModels
 {
     public class MainViewModel : ObservableObject
     {
+        private readonly IVoitureRepository _repository;
+
         private RelayCommand? _addCommand;
 
         private string? _texte;
@@ -27,13 +31,13 @@ namespace CoursWpfOptec.ViewModels
             }
         }
 
-        public ObservableCollection<StringViewModel> Items { get; }
+        public ObservableCollection<VoitureViewModel> Items { get; }
 
         public MainViewModel()
         {
-            
+            _repository = (IVoitureRepository)ServiceProvider!.GetService(typeof(IVoitureRepository))!;
             Mediator<DeleteStringViewModelMessage>.Instance.Register(OnDeleteStringViewModel);
-            Items = new ObservableCollection<StringViewModel>() { new StringViewModel("Value 1"), new StringViewModel("Value 2") };
+            Items = new ObservableCollection<VoitureViewModel>(_repository.Execute(new GetAllCarsQuery()).Select(v => new VoitureViewModel(v)));
         }
 
         private void OnDeleteStringViewModel(object sender, DeleteStringViewModelMessage message)
@@ -51,7 +55,8 @@ namespace CoursWpfOptec.ViewModels
 
         private void Add()
         {
-            Items.Add(new StringViewModel(Texte!));
+
+            //Items.Add(new VoitureViewModel(Texte!));
             Texte = null;
         }
 

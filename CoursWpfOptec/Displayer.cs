@@ -10,7 +10,7 @@ namespace CoursWpfOptec
 {
     internal class Displayer : IPopupRepository
     {
-        public void Display(StringViewModel viewModel)
+        public void Display(VoitureViewModel viewModel)
         {
             Popup popup = new Popup();
             popup.DataContext = viewModel;

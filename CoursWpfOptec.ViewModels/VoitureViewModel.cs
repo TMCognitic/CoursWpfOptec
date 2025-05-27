@@ -1,4 +1,5 @@
-﻿using CoursWpfOptec.ViewModels.Messages;
+﻿using CoursWpfOptec.Models.Entities;
+using CoursWpfOptec.ViewModels.Messages;
 using CoursWpfOptec.ViewModels.Repositories;
 using Tools.Mvvm.Commands;
 using Tools.Mvvm.Messenger;
@@ -6,13 +7,13 @@ using Tools.Mvvm.ViewModels;
 
 namespace CoursWpfOptec.ViewModels
 {
-    public class StringViewModel : EntityViewModel<string>
+    public class VoitureViewModel : EntityViewModel<Voiture>
     {
         private readonly IPopupRepository _popupRepository;
         private RelayCommand? _deleteCommand;
         private RelayCommand? _showCommand;
 
-        public string Value { get { return Entity; } }
+        public string Plaque { get { return Entity.Plaque; } }
 
         public RelayCommand DeleteCommand
         {
@@ -30,7 +31,7 @@ namespace CoursWpfOptec.ViewModels
             }
         }
 
-        public StringViewModel(string value) : base(value)
+        public VoitureViewModel(Voiture entity) : base(entity)
         {
             _popupRepository = (IPopupRepository)ServiceProvider.GetService(typeof(IPopupRepository))!;
         }

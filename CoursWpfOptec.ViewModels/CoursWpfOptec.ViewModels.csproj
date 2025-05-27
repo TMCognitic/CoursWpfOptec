@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CoursWpfOptec.Models\CoursWpfOptec.Models.csproj" />
     <ProjectReference Include="..\Tools.Mvvm\Tools.Mvvm.csproj" />
   </ItemGroup>
 

@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CoursWpfOptec.ViewModels.Repositories
+namespace Tools.Cqs.Queries
 {
-    public interface IPopupRepository
+    public interface IQueryDefinition<TResult>
     {
-        void Display(VoitureViewModel model);
     }
 }

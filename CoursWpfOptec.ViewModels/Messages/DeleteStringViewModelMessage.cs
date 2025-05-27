@@ -8,9 +8,9 @@ namespace CoursWpfOptec.ViewModels.Messages
 {
     internal class DeleteStringViewModelMessage
     {
-        public StringViewModel ViewModel { get; }
+        public VoitureViewModel ViewModel { get; }
 
-        public DeleteStringViewModelMessage(StringViewModel viewModel)
+        public DeleteStringViewModelMessage(VoitureViewModel viewModel)
         {
             ViewModel = viewModel;
         }
