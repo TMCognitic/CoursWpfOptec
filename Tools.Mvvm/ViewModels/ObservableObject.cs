@@ -1,12 +1,19 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Windows;
 using Tools.Mvvm.Commands;
+using Tools.Mvvm.Extensions;
 
 namespace Tools.Mvvm.ViewModels
 {
     public abstract class ObservableObject : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler? PropertyChanged;
+
+        protected IServiceProvider? ServiceProvider
+        {
+            get { return Application.Current.GetServiceProvider(); }
+        }
 
         protected bool Set<T>(ref T field, T value, [CallerMemberName] string propertyName = "")
         {

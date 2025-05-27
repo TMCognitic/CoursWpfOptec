@@ -1,6 +1,8 @@
 ﻿using CoursWpfOptec.ViewModels.Messages;
 using System.Collections.ObjectModel;
+using System.Windows;
 using Tools.Mvvm.Commands;
+using Tools.Mvvm.Extensions;
 using Tools.Mvvm.Messenger;
 using Tools.Mvvm.ViewModels;
 
@@ -29,6 +31,7 @@ namespace CoursWpfOptec.ViewModels
 
         public MainViewModel()
         {
+            
             Mediator<DeleteStringViewModelMessage>.Instance.Register(OnDeleteStringViewModel);
             Items = new ObservableCollection<StringViewModel>() { new StringViewModel("Value 1"), new StringViewModel("Value 2") };
         }

@@ -8,9 +8,9 @@ namespace Tools.Mvvm.ViewModels
 {
     public abstract class EntityViewModel<T> : ObservableObject
     {
-        protected readonly T _entity;
+        protected T _entity;
 
-        public T Entity
+        protected T Entity
         {
             get { return _entity; } 
         }
