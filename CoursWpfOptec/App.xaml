@@ -1,0 +1,10 @@
+﻿<Application x:Class="CoursWpfOptec.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:CoursWpfOptec"
+             xmlns:vm="clr-namespace:CoursWpfOptec.ViewModels;assembly=CoursWpfOptec.ViewModels"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <vm:MainViewModel x:Key="main" />
+    </Application.Resources>
+</Application>

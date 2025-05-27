@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36121.58 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoursWpfOptec", "CoursWpfOptec\CoursWpfOptec.csproj", "{277BB5C8-AE9E-4892-A25D-122815005BE8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoursWpfOptec.ViewModels", "CoursWpfOptec.ViewModels\CoursWpfOptec.ViewModels.csproj", "{A92E9370-78AA-4256-8486-659ED7406EEF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01 App", "01 App", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02 ViewModels", "02 ViewModels", "{668CC99A-B7A2-43BE-B167-6B4BF1997145}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03 Models", "03 Models", "{A1ABFB72-FE89-4E4B-8F84-2791F902B8A9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "99 Tools", "99 Tools", "{DC54A53D-6F24-4BD2-99C7-484C47C20BDF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tools.Mvvm", "Tools.Mvvm\Tools.Mvvm.csproj", "{2AFECB2E-9E5D-45AE-AFF7-5E3AFC5958C2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{277BB5C8-AE9E-4892-A25D-122815005BE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{277BB5C8-AE9E-4892-A25D-122815005BE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{277BB5C8-AE9E-4892-A25D-122815005BE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{277BB5C8-AE9E-4892-A25D-122815005BE8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A92E9370-78AA-4256-8486-659ED7406EEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A92E9370-78AA-4256-8486-659ED7406EEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A92E9370-78AA-4256-8486-659ED7406EEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A92E9370-78AA-4256-8486-659ED7406EEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2AFECB2E-9E5D-45AE-AFF7-5E3AFC5958C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AFECB2E-9E5D-45AE-AFF7-5E3AFC5958C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AFECB2E-9E5D-45AE-AFF7-5E3AFC5958C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AFECB2E-9E5D-45AE-AFF7-5E3AFC5958C2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{277BB5C8-AE9E-4892-A25D-122815005BE8} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{A92E9370-78AA-4256-8486-659ED7406EEF} = {668CC99A-B7A2-43BE-B167-6B4BF1997145}
+		{2AFECB2E-9E5D-45AE-AFF7-5E3AFC5958C2} = {DC54A53D-6F24-4BD2-99C7-484C47C20BDF}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {70A6B2CF-5A58-4B90-9DAC-85D94F520526}
+	EndGlobalSection
+EndGlobal
