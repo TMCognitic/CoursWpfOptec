@@ -1,4 +1,7 @@
-﻿using CoursWpfOptec.Models.Queries.Voitures;
+﻿using CoursWpfOptec.Models.Commands;
+using CoursWpfOptec.Models.Commands.Voitures;
+using CoursWpfOptec.Models.Entities;
+using CoursWpfOptec.Models.Queries.Voitures;
 using CoursWpfOptec.Models.Repositories;
 using CoursWpfOptec.ViewModels.Messages;
 using System.Collections.ObjectModel;
@@ -30,14 +33,29 @@ namespace CoursWpfOptec.ViewModels
                 Set(ref _texte, value);
             }
         }
-
-        public ObservableCollection<VoitureViewModel> Items { get; }
+        private ObservableCollection<VoitureViewModel> _items;
 
         public MainViewModel()
         {
             _repository = (IVoitureRepository)ServiceProvider!.GetService(typeof(IVoitureRepository))!;
             Mediator<DeleteStringViewModelMessage>.Instance.Register(OnDeleteStringViewModel);
-            Items = new ObservableCollection<VoitureViewModel>(_repository.Execute(new GetAllCarsQuery()).Select(v => new VoitureViewModel(v)));
+
+            _items = new ObservableCollection<VoitureViewModel>();
+            Task.Run(LoadItems);
+        }
+
+        async Task LoadItems()
+        {
+            await Task.Delay(5000);
+            IEnumerable<Voiture> voitures = await _repository.ExecuteAsync(new GetAllCarsQuery());
+
+            foreach (Voiture voiture in voitures)
+            {
+                Application.Current.Dispatcher.Invoke(() =>
+                {
+                    _items.Add(new VoitureViewModel(voiture));
+                });
+            }
         }
 
         private void OnDeleteStringViewModel(object sender, DeleteStringViewModelMessage message)
@@ -53,11 +71,27 @@ namespace CoursWpfOptec.ViewModels
             }
         }
 
+        public ObservableCollection<VoitureViewModel> Items
+        {
+            get
+            {
+                return _items;
+            }
+        }
+
         private void Add()
         {
+            Task.Run(async () => {
+                Voiture voiture = await _repository.ExecuteAsync(new AddCarCommand(Texte!));
+                Application.Current.Dispatcher.Invoke(() =>
+                {
+                    Items.Add(new VoitureViewModel(voiture));
+                    Texte = null;
+                });
+            });
 
             //Items.Add(new VoitureViewModel(Texte!));
-            Texte = null;
+            
         }
 
         private bool CanAdd()

@@ -1,4 +1,5 @@
-﻿using CoursWpfOptec.Models.Entities;
+﻿using CoursWpfOptec.Models.Commands.Voitures;
+using CoursWpfOptec.Models.Entities;
 using CoursWpfOptec.Models.Queries.Voitures;
 using CoursWpfOptec.Models.Repositories;
 using System;
@@ -18,9 +19,18 @@ namespace CoursWpfOptec.Models.Services
             _dataSource = dataSource;
         }
 
-        public IEnumerable<Voiture> Execute(GetAllCarsQuery query)
+        public async Task<IEnumerable<Voiture>> ExecuteAsync(GetAllCarsQuery query)
         {
+            await Task.Delay(100);
             return _dataSource;
+        }
+
+        public async Task<Voiture> ExecuteAsync(AddCarCommand command)
+        {
+            await Task.Delay(100);
+            Voiture voiture = new Voiture(command.Plaque);
+            _dataSource.Add(voiture);
+            return voiture;
         }
     }
 }
